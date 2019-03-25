@@ -358,6 +358,7 @@ class ReactTooltip extends React.Component {
    * When mouse leave, hide tooltip
    */
   hideTooltip (e, hasTarget) {
+    if (e === undefined) return
     const {delayHide, disable} = this.state
     const {afterHide} = this.props
     const placeholder = this.getTooltipContent()
