@@ -1312,6 +1312,7 @@ var customListeners = {
       var map = target[this.id];
       map[event] = listener;
     } else {
+      // this is workaround for WeakMap, which is not supported in older browsers, such as IE
       Object.defineProperty(target, this.id, {
         configurable: true,
         value: _defineProperty({}, event, listener)
@@ -1968,6 +1969,7 @@ var ReactTooltip = (0, _staticMethods2.default)(_class = (0, _windowListener2.de
     value: function hideTooltip(e, hasTarget) {
       var _this7 = this;
 
+      if (e === undefined) return;
       var _state2 = this.state,
           delayHide = _state2.delayHide,
           disable = _state2.disable;
